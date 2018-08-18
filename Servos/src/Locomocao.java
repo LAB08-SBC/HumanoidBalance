@@ -37,13 +37,22 @@ public class Locomocao
         
     	Thread.sleep(1000);
     	
-    	clear(Jason);
-    	Thread.sleep(2000);
-    	initialPos(Jason);
+    	//clear(Jason);
+    	//Thread.sleep(2000);
+    	//initialPos(Jason);
+    	boolean teste=true;
     	
+    	LoopbackTest sensores = new LoopbackTest("/dev/ttyACM0"); 
+    	try {
+			sensores.connect();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     	
+    	//Gravador gravador = new Gravador("DadosTeste.txt");
+    	//int contador2=0;
     	
-    	while (true){
+    	while (teste){
     	
     		BigDecimal i = new BigDecimal(1.00);
     		
@@ -71,6 +80,16 @@ public class Locomocao
 		    	Jason.move(17, motor17);
 		    	Jason.move(18, motor18);
 		    	Thread.sleep(50);
+		    	System.out.println(LoopbackTest.anguloAtualY);
+		    	
+		    	 //gravador.escrever(LoopbackTest.anguloAtual);
+				    //gravador.escrever(" ");
+			    	//if(contador2==300){
+			    	//	gravador.close();
+			    	//	teste=false;
+			    	//}
+			    	//contador2++;
+			    	//System.out.println(contador2);
 		    	
 		    	BigDecimal result = i.add(new BigDecimal(0.1));
 		    	i = result;

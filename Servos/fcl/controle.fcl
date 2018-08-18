@@ -33,9 +33,9 @@ END_FUZZIFY
 DEFUZZIFY anguloSaida	
 	TERM altoNegativo := (-80,0) (-70,1) (-50,0);
 	TERM medioNegativo := (-60,0) (-40,1) (-30,0);
-	TERM baixoNegativo := (-35,0) (-15,1) (-4,0);
-	TERM neutro := (-5,0) (0,1) (5,0);
-	TERM baixoPositivo := (4,0) (15,1) (35,0);
+	TERM baixoNegativo := (-35,0) (-20,1) (-2,0);
+	TERM neutro := (-7,0) (0,1) (7,0);
+	TERM baixoPositivo := (2,0) (20,1) (35,0);
 	TERM medioPositivo := (30,0) (40,1) (60,0);
 	TERM altoPositivo := (50,0) (70,1) (80,0);
 	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method

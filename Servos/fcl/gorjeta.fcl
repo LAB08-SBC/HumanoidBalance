@@ -12,14 +12,23 @@ VAR_OUTPUT
 	velocidadeSaida: Real;
 END_VAR
 
-// Fuzzify input variable 'angulo': {'muitoNegativo','poucoNegativo' , 'equilibrio' , 'poucoPositivo', 'muitoPositivo'}
-FUZZIFY angulo 	
+// Fuzzify input variable 'angulox': {'muitoNegativo','poucoNegativo' , 'equilibrio' , 'poucoPositivo', 'muitoPositivo'}
+FUZZIFY angulox 	
 	TERM muitoNegativo := (-50,1) (-30, 1) (-10, 0); 
 	TERM poucoNegativo:= (-16, 0) (-15,1) (0,0);
 	TERM equilibrio := (-8,0) (-6,1) (6,1) (8,0);
 	TERM poucoPositivo := (0,0) (15,1) (16,0);
 	TERM muitoPositivo := (10,0) (30,1) (50,1);
 END_FUZZIFY
+
+// Fuzzify input variable 'anguloy': {'muitoNegativo','poucoNegativo' , 'equilibrio' , 'poucoPositivo', 'muitoPositivo'}
+//FUZZIFY anguloy 	
+	//TERM muitoNegativo := (-50,1) (-30, 1) (-10, 0); 
+	//TERM poucoNegativo:= (-16, 0) (-15,1) (0,0);
+	//TERM equilibrio := (-8,0) (-6,1) (6,1) (8,0);
+	//TERM poucoPositivo := (0,0) (15,1) (16,0);
+	//TERM muitoPositivo := (10,0) (30,1) (50,1);
+//END_FUZZIFY
 
 // Fuzzify input variable 'velocidade': {'muitoNegativo','poucoNegativo' , 'equilibrio' , 'poucoPositivo', 'muitoPositivo'}
 FUZZIFY velocidade 	
@@ -30,20 +39,33 @@ FUZZIFY velocidade
 	TERM muitoRapido := (7,0) (20,1) (50,1);
 END_FUZZIFY
 
-// Defuzzzify output variable 'anguloSaida' : {'baixa', 'media', 'alta' }
-DEFUZZIFY anguloSaida	
-	TERM muitoNegativo := (-60,0) (-45,1) (-15,0);
-	TERM poucoNegativo := (-18,0) (-13,1) (-6,0);
-	TERM ligeiramenteNegativo := (-8,0) (-6,1) (-2,0);
-	TERM neutro := (-8,0) (0,0) (8,0);
-	TERM ligeiramentePositivo := (2,0) (6,0) (8,0);
-	TERM poucoPositivo := (6,0) (13,1) (18,0);
-	TERM muitoPositivo := (15,0) (45,1) (60,0);
+// Defuzzzify output variable 'anguloSaidax' : {'baixa', 'media', 'alta' }
+DEFUZZIFY anguloSaidax	
+	TERM muitoNegativo := (-50,0) (-25,1) (-12,0);
+	TERM poucoNegativo := (-12,0) (-8,1) (-4,0);
+	TERM ligeiramenteNegativo := (-8,0) (-5,1) (-1,0);
+	TERM neutro := (-7,0) (0,0) (7,0);
+	TERM ligeiramentePositivo := (1,0) (6,0) (8,0);
+	TERM poucoPositivo := (4,0) (5,1) (12,0);
+	TERM muitoPositivo := (12,0) (25,1) (50,0);
 	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
 	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
 END_DEFUZZIFY
 
-// Defuzzzify output variable 'anguloSaida' : {'baixa', 'media', 'alta' }
+// Defuzzzify output variable 'anguloSaiday' : {'baixa', 'media', 'alta' }
+//DEFUZZIFY anguloSaiday	
+	//TERM muitoNegativo := (-50,0) (-25,1) (-12,0);
+	//TERM poucoNegativo := (-12,0) (-8,1) (-4,0);
+	//TERM ligeiramenteNegativo := (-8,0) (-5,1) (-1,0);
+	//TERM neutro := (-7,0) (0,0) (7,0);
+	//TERM ligeiramentePositivo := (1,0) (6,0) (8,0);
+	//TERM poucoPositivo := (4,0) (5,1) (12,0);
+	//TERM muitoPositivo := (12,0) (25,1) (50,0);
+	//METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	//DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+//END_DEFUZZIFY
+
+// Defuzzzify output variable 'velocidadeSaida' : {'baixa', 'media', 'alta' }
 DEFUZZIFY velocidadeSaida	
 	TERM baixo := (0,0) (1,1) (2,0);
 	TERM normal := (1,0) (2,1)(3,1) (4,0);
@@ -57,20 +79,28 @@ RULEBLOCK No1
 	ACT : MIN;	// Use 'min' activation method
 	ACCU : MAX;	// Use 'max' accumulation method
 
-	RULE 1 : IF angulo IS muitoPositivo AND velocidade IS NOT devagar THEN anguloSaida IS poucoNegativo;
-	RULE 2 : IF angulo IS poucoPositivo AND velocidade IS NOT devagar THEN anguloSaida IS ligeiramenteNegativo;
-	RULE 3 : IF angulo IS equilibrio AND velocidade IS NOT devagar THEN anguloSaida IS neutro;
-	RULE 4 : IF angulo IS poucoNegativo AND velocidade IS NOT devagar THEN anguloSaida IS ligeiramentePositivo;
-	RULE 5 : IF angulo IS muitoNegativo AND velocidade IS NOT devagar THEN anguloSaida IS poucoPositivo;
-	RULE 6 : IF angulo IS muitoPositivo AND velocidade IS devagar THEN anguloSaida IS poucoNegativo;
-	RULE 7 : IF angulo IS muitoNegativo AND velocidade IS devagar THEN anguloSaida IS poucoPositivo;
-	RULE 8 : IF angulo IS muitoPositivo AND velocidade IS muitoDevagar THEN anguloSaida IS muitoNegativo;
-	RULE 9 : IF angulo IS muitoNegativo AND velocidade IS muitoDevagar THEN anguloSaida IS muitoPositivo;
-	RULE 10 : IF angulo IS equilibrio AND velocidade IS devagar THEN anguloSaida IS neutro;
-	RULE 11 : IF angulo IS equilibrio AND velocidade IS muitoDevagar THEN anguloSaida IS neutro;
-	RULE 12 : IF angulo IS muitoPositivo OR angulo IS muitoNegativo THEN velocidadeSaida IS rapido;
-	RULE 12 : IF angulo IS poucoPositivo OR angulo IS poucoNegativo THEN velocidadeSaida IS normal;
-	RULE 12 : IF angulo IS equilibrio THEN velocidadeSaida IS baixo;
+	RULE 1 : IF angulox IS muitoPositivo AND velocidade IS NOT devagar THEN anguloSaidax IS poucoNegativo;
+	RULE 2 : IF angulox IS poucoPositivo AND velocidade IS NOT devagar THEN anguloSaidax IS poucoNegativo;
+	RULE 3 : IF angulox IS equilibrio AND velocidade IS NOT devagar THEN anguloSaidax IS neutro;
+	RULE 4 : IF angulox IS poucoNegativo AND velocidade IS NOT devagar THEN anguloSaidax IS poucoPositivo;
+	RULE 5 : IF angulox IS muitoNegativo AND velocidade IS NOT devagar THEN anguloSaidax IS poucoPositivo;
+	RULE 6 : IF angulox IS muitoPositivo AND velocidade IS devagar THEN anguloSaidax IS poucoNegativo;
+	RULE 7 : IF angulox IS muitoNegativo AND velocidade IS devagar THEN anguloSaidax IS poucoPositivo;
+	RULE 8 : IF angulox IS muitoPositivo AND velocidade IS muitoDevagar THEN anguloSaidax IS muitoNegativo;
+	RULE 9 : IF angulox IS muitoNegativo AND velocidade IS muitoDevagar THEN anguloSaidax IS muitoPositivo;
+	RULE 10 : IF angulox IS equilibrio AND velocidade IS devagar THEN anguloSaidax IS neutro;
+	RULE 11 : IF angulox IS equilibrio AND velocidade IS muitoDevagar THEN anguloSaidax IS neutro;
+	
+	//RULE 12 : IF anguloy IS muitoPositivo THEN anguloSaidax IS muitoNegativo;
+	//RULE 13 : IF anguloy IS poucoPositivo THEN anguloSaidax IS poucoNegativo;
+	//RULE 14 : IF anguloy IS equilibrio THEN anguloSaidax IS neutro;
+	//RULE 15 : IF anguloy IS poucoNegativo THEN anguloSaidax IS poucoPositivo;
+	//RULE 16 : IF anguloy IS muitoNegativo THEN anguloSaidax IS poucoPositivo;
+	
+	
+	RULE 12 : IF angulox IS muitoPositivo OR angulox IS muitoNegativo THEN velocidadeSaida IS rapido;
+	RULE 13 : IF angulox IS poucoPositivo OR angulox IS poucoNegativo THEN velocidadeSaida IS normal;
+	RULE 14 : IF angulox IS equilibrio THEN velocidadeSaida IS baixo;
 END_RULEBLOCK
 
 END_FUNCTION_BLOCK

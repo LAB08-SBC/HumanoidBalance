@@ -14,11 +14,11 @@ END_VAR
 
 // Fuzzify input variable 'angulo': {'muitoNegativo','poucoNegativo' , 'equilibrio' , 'poucoPositivo', 'muitoPositivo'}
 FUZZIFY angulo 	
-	TERM muitoNegativo := (-50,1) (-30, 1) (-10, 0); 
+	TERM muitoNegativo := (-50,1) (-30, 1) (-8, 0); 
 	TERM poucoNegativo:= (-16, 0) (-15,1) (0,0);
-	TERM equilibrio := (-8,0) (-6,1) (6,1) (8,0);
+	TERM equilibrio := (-4,0) (-2,1) (2,1) (4,0);
 	TERM poucoPositivo := (0,0) (15,1) (16,0);
-	TERM muitoPositivo := (10,0) (30,1) (50,1);
+	TERM muitoPositivo := (8,0) (30,1) (50,1);
 END_FUZZIFY
 
 // Fuzzify input variable 'velocidade': {'muitoNegativo','poucoNegativo' , 'equilibrio' , 'poucoPositivo', 'muitoPositivo'}
@@ -34,9 +34,9 @@ END_FUZZIFY
 DEFUZZIFY anguloSaida	
 	TERM muitoNegativo := (-60,0) (-45,1) (-15,0);
 	TERM poucoNegativo := (-35,0) (-30,1) (-10,0);
-	TERM ligeiramenteNegativo := (-15,0) (-10,1) (-2,0);
-	TERM neutro := (-6,0) (0,0) (6,0);
-	TERM ligeiramentePositivo := (2,0) (10,0) (15,0);
+	TERM ligeiramenteNegativo := (-15,0) (-10,1) (-3,0);
+	TERM neutro := (-4,0) (0,0) (4,0);
+	TERM ligeiramentePositivo := (3,0) (10,0) (15,0);
 	TERM poucoPositivo := (10,0) (30,1) (35,0);
 	TERM muitoPositivo := (15,0) (45,1) (60,0);
 	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method

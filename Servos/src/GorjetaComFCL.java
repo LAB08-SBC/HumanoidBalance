@@ -22,7 +22,8 @@ public class GorjetaComFCL
       //JFuzzyChart.get().chart(functionBlock);
  
       // Set inputs
-      functionBlock.setVariable("angulo", angulo);
+      functionBlock.setVariable("angulox", angulo);
+      //functionBlock.setVariable("anguloy", angulo);
       functionBlock.setVariable("velocidade",velocidade);
       
       // Evaluate 
@@ -30,11 +31,13 @@ public class GorjetaComFCL
       
       // Show output variables chart
       //Variable anguloSaida = functionBlock.getVariable("anguloSaida");
-      double anguloSaida=fis.getVariable("anguloSaida").getValue();
+      double anguloSaidax=fis.getVariable("anguloSaidax").getValue();
+      //double anguloSaiday=fis.getVariable("anguloSaiday").getValue();
       double velocidadeSaida=fis.getVariable("velocidadeSaida").getValue();
+
       //JFuzzyChart.get().chart(anguloSaida, anguloSaida.getDefuzzifier(), true);
       //System.out.println("Angulo Saida:" + fis.getVariable("anguloSaida").getValue());
-      double retorno[]={anguloSaida,velocidadeSaida};
+      double retorno[]={anguloSaidax, anguloSaidax, velocidadeSaida};
       return(retorno);
       //Print ruleSet
       //System.out.println("\n====================================\n");

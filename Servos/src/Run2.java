@@ -9,8 +9,8 @@ public class Run2
     //public static int initPos[] = {336, 687, 298, 724, 412, 611, 355, 664, 504, 520, 394, 630, 278, 743, 616, 405, 512, 512};
     //public static int posicoes[]={336, 687, 298, 724, 412, 611, 355, 664, 504, 520, 394, 630, 278, 743, 616, 405, 512, 512};
     
-    public static int initPos[] = {336, 687, 298, 724, 412, 611, 360, 660, 491, 530, 394, 630, 278, 743, 616, 405, 494, 520};
-	public static int posicoes[]={336, 687, 298, 724, 412, 611, 360, 660, 491, 530, 394, 630, 278, 743, 616, 405, 494, 520};
+    public static int initPos[] = {336, 687, 298, 724, 412, 611, 360, 660, 491, 530, 374, 650, 278, 743, 616, 405, 494, 520};
+	public static int posicoes[]={336, 687, 298, 724, 412, 611, 360, 660, 491, 530, 374, 650, 278, 743, 616, 405, 494, 520};
     
     
     public static void initialPos(Bioloid teste) throws InterruptedException {
@@ -19,7 +19,7 @@ public class Run2
         for (int i=0;i<motors.length;i++){
         	motors[i]=initPos[i];
         	teste.move(i+1,motors[i]);
-        	Thread.sleep(1000);
+        	Thread.sleep(400);
         }
     }
     
@@ -33,7 +33,7 @@ public class Run2
         		if(i==(8-1))
         			motors[i] = 663;
         	teste.move(i+1,motors[i]);
-        	Thread.sleep(1000);
+        	Thread.sleep(400);
         }
     }
 	
@@ -55,8 +55,10 @@ public class Run2
     	Thread.sleep(200);
     	initialPos(Jason);
     	
-    	//Jason.move(11, posicoes[11-1]-60);
-    	//Jason.move(12, posicoes[12-1]+60);
+    	//Jason.move(1, posicoes[1-1]);
+    	//Jason.move(2, posicoes[2-1]);
+    	//Jason.move(1, 212);
+    	//Jason.move(2, 812);
     	//Thread.sleep(1500);
     	
 	}

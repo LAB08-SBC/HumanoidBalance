@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
+import java.util.Arrays;
   
 /**
  * This version of the TwoWaySerialComm example makes use of the
@@ -16,7 +17,10 @@ import java.math.BigDecimal;
  */
 public class LoopbackTest{
 	public static String angulo;
-	public static double anguloAtual;
+	public static String anguloy;
+	public static String angulox;
+	public static double anguloAtualY;
+	public static double anguloAtualX;
 	public static double anguloAnterior;
 	public static double velocidadeAngular;
 	public static double calibracao =0.0025;
@@ -72,31 +76,41 @@ public class LoopbackTest{
   
             try {
                 int len = 0;
+//                while ((data = in.read()) > -1) {                    
+//                    if (data == '\n') {
+//                        break;
+//                    }
+//                    buffer[len++] = (byte) data;
+//                }
+//                
+//                //System.out.print(new String(buffer, 0, len));
+//                angulo = new String(buffer, 0, len);
+//                String[] dados = angulo.split(";");
+//                
+//                double anguloDoubley = Double.parseDouble(angulo);
+//                double anguloDoublex = Double.parseDouble(angulo);
+//                anguloAtual=anguloDouble;
+//               //System.out.println(anguloDouble);
+//                
                 while ((data = in.read()) > -1) {                    
                     if (data == '\n') {
                         break;
                     }
                     buffer[len++] = (byte) data;
                 }
+              
+                angulo = new String(buffer, 0, len);
+                
+                String string = angulo;
+                String[] parts = string.split(";");
+                String part1 = parts[0];
+                String part2 = parts[1];
+                double anguloDoubley = Double.parseDouble(part1);
+                double anguloDoublex = Double.parseDouble(part2);
+                anguloAtualY=anguloDoubley;
+                anguloAtualY=anguloDoublex;
                 
                 //System.out.print(new String(buffer, 0, len));
-                angulo = new String(buffer, 0, len);
-                double anguloDouble = Double.parseDouble(angulo);
-                anguloAtual=anguloDouble;
-                //System.out.println(anguloDouble);
-                
-                while ((data = in.read()) > -1) {                    
-                    if (data == '\n') {
-                        break;
-                    }
-                    buffer[len++] = (byte) data;
-                }
-                
-                //System.out.print(new String(buffer, 0, len));
-                angulo = new String(buffer, 0, len);
-                anguloDouble = Double.parseDouble(angulo);
-                anguloAtual=anguloDouble;
-                //System.out.println(anguloDouble);
                 
             } catch (IOException e) {
                 e.printStackTrace();

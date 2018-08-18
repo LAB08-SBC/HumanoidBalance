@@ -1,6 +1,10 @@
 import java.io.IOException;
 import java.math.BigDecimal;
 
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
+
 
 
 public class Run
@@ -46,7 +50,7 @@ public class Run
 		}
    
     	double anguloAtual=0;
-    	double anguloAntes=LoopbackTest.anguloAtual;
+    	double anguloAntes=LoopbackTest.anguloAtualY;
     	double velocidade;
     	double anguloSaida;
     	double auxiliar=999999999;
@@ -58,30 +62,34 @@ public class Run
     	double coeficiente;
     	long tempoAtual2;
     	long coeficiente2;
-    	double anguloPadrao=LoopbackTest.anguloAtual;
+    	double anguloPadrao=LoopbackTest.anguloAtualY;
+    	
     	for(int i=0;i<300;i++)
-	    	anguloPadrao =LoopbackTest.anguloAtual;
+	    	anguloPadrao =LoopbackTest.anguloAtualY;
+    	
     	double saidas[];
+    	
     	System.out.println(anguloPadrao);
-    	//Gravador gravador = new Gravador("DadosTeste.txt");
-    	//int contador2=0;
+//    	Gravador gravador = new Gravador("DadosTeste.txt");
+//    	int contador2=0;
     	while(teste){
 		    Thread.sleep(100);
-		    anguloAtual =LoopbackTest.anguloAtual;
+		    anguloAtual =LoopbackTest.anguloAtualY;
 		    velocidade = anguloAtual-anguloAntes;
 		    System.out.println("velocidade: " + Math.abs(velocidade));
-		    System.out.println("Angulo: " + LoopbackTest.anguloAtual);
+		    System.out.println("Angulo: " + LoopbackTest.anguloAtualY);
 		    
-		    //gravador.escrever(LoopbackTest.anguloAtual);
-		    //gravador.escrever(" ");
-	    	//if(contador2==500){
-	    	//	gravador.close();
-	    	//	teste=false;
-	    	//}
-	    	//contador2++;
+//		    gravador.escrever(LoopbackTest.anguloAtual);
+//		    gravador.escrever(" ");
+//	    	if(contador2==100){
+//	    		gravador.close();
+//	    		teste=false;
+//    		}
+//	    	
+//	    	contador2++;
 		    try{
-		    	if(Math.abs(anguloPadrao-LoopbackTest.anguloAtual)>4){
-		    		saidas=GorjetaComFCL.calcularAngulo(LoopbackTest.anguloAtual, velocidade);
+		    	if(Math.abs(anguloPadrao-LoopbackTest.anguloAtualY)>4){
+		    		saidas=GorjetaComFCL.calcularAngulo(LoopbackTest.anguloAtualY, velocidade);
 		    		batata=(int)Math.round(saidas[0]);
 		    		if(auxiliar==999999999){
 			    		auxiliar=batata;
@@ -90,9 +98,9 @@ public class Run
 			    	System.out.println("Angulo Saida: " + batata + " Velocidade Saida: " + saidas[1]);
 			    	tempoAtual=System.nanoTime()/1000000;
 			    	coeficiente=tempoAtual-tempoAnterior;
-			    	//contador++;
-			    	//if(contador>4)
-		    			//teste=false;
+//			    	contador++;
+//			    	if(contador>4)
+//		    			teste=false;
 			    	System.out.println(coeficiente);
 			    	if(coeficiente/400>1){
 			    		tempoAnterior=tempoAtual;
@@ -107,7 +115,7 @@ public class Run
 		    	else{
 		    		tempoAtual2=System.nanoTime()/1000000;
 		    		coeficiente2=tempoAtual2-tempoAnterior;
-		    		if(Math.abs(anguloPadrao-LoopbackTest.anguloAtual)<4 && coeficiente2/3000>1){
+		    		if(Math.abs(anguloPadrao-LoopbackTest.anguloAtualY)<4 && coeficiente2/3000>1){
 		    		posicoes[12-1]= initPos[12-1];
 		    		posicoes[11-1]= initPos[11-1];
 		    		Jason.move(11, posicoes[11-1]);
