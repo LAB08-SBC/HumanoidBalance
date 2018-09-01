@@ -1,0 +1,561 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x7575ad90, pid=3451, tid=0x6126e470
+#
+# JRE version: OpenJDK Runtime Environment (8.0_171-b11) (build 1.8.0_171-8u171-b11-1~deb9u1-b11)
+# Java VM: OpenJDK Client VM (25.171-b11 mixed mode linux-aarch32 )
+# Problematic frame:
+# V  [libjvm.so+0x463d90]
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x6309dc00):  JavaThread "Thread-8" [_thread_in_Java, id=3472, stack(0x6121f000,0x6126f000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00000011
+
+Registers:
+R0=0x00000001
+R1=0x00000001
+R2=0x6309dc00
+R3=0x759052dc
+R4=0x6126da00
+R5=0x76f85ce8
+R6=0x6126daf0
+R7=0x6126dacc
+R8=0x6309dc00
+R9=0x7540a3d8
+R10=0x641b96e0
+R11=0x6126d9f4
+R12=0x00000003
+R13=0x6126d9a8
+R14=0x7540a42c
+R15=0x7575ad90
+
+Top of Stack: (sp=0x6126d9a8)
+0x6126d9a8:   74f0b588 74f0b588 6126d9d4 759052dc
+0x6126d9b8:   759052b4 758cb68c 00000006 6309dc00
+0x6126d9c8:   76f85ce8 6126daf0 6126dacc 6126da00
+0x6126d9d8:   76f85ce8 6126daf0 6126dacc 6309dc00
+0x6126d9e8:   7540a3d8 641b96e0 6126da1c 7540a42c
+0x6126d9f8:   6126da1c 6309dc00 6309dc00 219d8500
+0x6126da08:   6126db44 6126dac8 63803c92 69251f20
+0x6126da18:   6126dadc 72fc1f80 6309e50c 6309e5f4 
+
+Instructions: (pc=0x7575ad90)
+0x7575ad70:   78 7d 1e 00 38 e3 1d 00 64 22 00 00 30 06 00 00
+0x7575ad80:   c8 bf 5f 01 f0 4f 2d e9 20 b0 8d e2 2c d0 4d e2
+0x7575ad90:   10 30 90 e5 c4 45 9f e5 03 00 52 e1 2c 20 0b e5
+0x7575ada0:   00 70 a0 e1 01 50 a0 e1 04 40 8f e0 0d 00 00 0a 
+
+Register to memory mapping:
+
+R0=0x00000001 is an unknown value
+R1=0x00000001 is an unknown value
+R2=0x6309dc00 is a thread
+R3=0x759052dc: <offset 0x60e2dc> in /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so at 0x752f7000
+R4=0x6126da00 is pointing into the stack for thread: 0x6309dc00
+R5=0x76f85ce8: __stack_chk_guard+0 in /lib/ld-linux-armhf.so.3 at 0x76f55000
+R6=0x6126daf0 is pointing into the stack for thread: 0x6309dc00
+R7=0x6126dacc is pointing into the stack for thread: 0x6309dc00
+R8=0x6309dc00 is a thread
+R9=0x7540a3d8: <offset 0x1133d8> in /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so at 0x752f7000
+R10={method} {0x641b96e0} 'serialPutchar' '(IC)V' in 'com/pi4j/wiringpi/Serial'
+R11=0x6126d9f4 is pointing into the stack for thread: 0x6309dc00
+R12=0x00000003 is an unknown value
+R13=0x6126d9a8 is pointing into the stack for thread: 0x6309dc00
+R14=0x7540a42c: <offset 0x11342c> in /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so at 0x752f7000
+R15=0x7575ad90: <offset 0x463d90> in /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so at 0x752f7000
+
+
+Stack: [0x6121f000,0x6126f000],  sp=0x6126d9a8,  free space=314k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x463d90]
+V  [libjvm.so+0x11342c]
+v  ~RuntimeStub::monitorexit_nofpu Runtime1 stub
+C  0x00000000
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+v  ~RuntimeStub::monitorexit_nofpu Runtime1 stub
+J 69 C1 com.pi4j.wiringpi.Serial.serialPutchar(IC)V (7 bytes) @ 0x72ffa370 [0x72ffa1c0+0x1b0]
+j  Ax12.move(II)V+58
+j  Locomocao$7.run()V+10
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x74f08000 JavaThread "DestroyJavaVM" [_thread_blocked, id=3453, stack(0x750b3000,0x75103000)]
+  0x6303fc00 JavaThread "Thread-11" [_thread_blocked, id=3475, stack(0x6112f000,0x6117f000)]
+  0x6303e800 JavaThread "Thread-10" [_thread_blocked, id=3474, stack(0x6117f000,0x611cf000)]
+  0x6309f400 JavaThread "Thread-9" [_thread_blocked, id=3473, stack(0x611cf000,0x6121f000)]
+=>0x6309dc00 JavaThread "Thread-8" [_thread_in_Java, id=3472, stack(0x6121f000,0x6126f000)]
+  0x6309c400 JavaThread "Thread-7" [_thread_blocked, id=3471, stack(0x6126f000,0x612bf000)]
+  0x6309b000 JavaThread "Thread-6" [_thread_blocked, id=3470, stack(0x612bf000,0x6130f000)]
+  0x63099800 JavaThread "Thread-5" [_thread_blocked, id=3469, stack(0x6130f000,0x6135f000)]
+  0x63098400 JavaThread "Thread-4" [_thread_blocked, id=3468, stack(0x6135f000,0x613af000)]
+  0x630ea800 JavaThread "Thread-3" [_thread_blocked, id=3467, stack(0x613af000,0x613ff000)]
+  0x630e9400 JavaThread "Thread-2" [_thread_blocked, id=3466, stack(0x63212000,0x63262000)]
+  0x74f83c00 JavaThread "Service Thread" daemon [_thread_blocked, id=3464, stack(0x63615000,0x63665000)]
+  0x74f81800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3463, stack(0x63480000,0x63500000)]
+  0x74f80000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=3462, stack(0x63b07000,0x63b57000)]
+  0x74f65400 JavaThread "Finalizer" daemon [_thread_blocked, id=3461, stack(0x63b57000,0x63ba7000)]
+  0x74f62400 JavaThread "Reference Handler" daemon [_thread_blocked, id=3460, stack(0x63ba7000,0x63bf7000)]
+
+Other Threads:
+  0x74f5dc00 VMThread [stack: 0x63bf7000,0x63c77000] [id=3458]
+  0x74f85800 WatcherThread [stack: 0x63400000,0x63480000] [id=3465]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 138K [0x64400000, 0x64950000, 0x69200000)
+  eden space 4416K,   3% used [0x64400000, 0x644213d0, 0x64850000)
+  from space 512K,   1% used [0x64850000, 0x648516c0, 0x648d0000)
+  to   space 512K,   0% used [0x648d0000, 0x648d0000, 0x64950000)
+ tenured generation   total 10944K, used 835K [0x69200000, 0x69cb0000, 0x72e00000)
+   the space 10944K,   7% used [0x69200000, 0x692d0c18, 0x692d0e00, 0x69cb0000)
+ Metaspace       used 3152K, capacity 3166K, committed 3224K, reserved 4400K
+
+Card table byte_map: [0x6438a000,0x64400000] byte_map_base: 0x64068000
+
+Polling page: 0x76f7f000
+
+CodeCache: size=32768Kb used=1429Kb max_used=1429Kb free=31338Kb
+ bounds [0x72eae000, 0x73016000, 0x74eae000]
+ total_blobs=309 nmethods=141 adapters=101
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 21,883 Thread 0x74f81800  136             java.math.BigInteger::multiplyByInt (144 bytes)
+Event: 21,887 Thread 0x74f81800 nmethod 136 0x73012348 code [0x730124a0, 0x730128f4]
+Event: 21,887 Thread 0x74f81800  137             java.lang.Math::max (11 bytes)
+Event: 21,888 Thread 0x74f81800 nmethod 137 0x73012c48 code [0x73012d20, 0x73012dbc]
+Event: 22,508 Thread 0x74f81800  138             java.lang.ThreadLocal::getMap (5 bytes)
+Event: 22,509 Thread 0x74f81800 nmethod 138 0x73012e08 code [0x73012f00, 0x73012fbc]
+Event: 22,663 Thread 0x74f81800  139             java.lang.ThreadLocal::access$400 (5 bytes)
+Event: 22,665 Thread 0x74f81800 nmethod 139 0x73013048 code [0x73013140, 0x730131dc]
+Event: 23,292 Thread 0x74f81800  141             java.math.BigInteger::trustedStripLeadingZeroInts (37 bytes)
+Event: 23,294 Thread 0x74f81800 nmethod 141 0x73013548 code [0x73013640, 0x73013730]
+
+GC Heap History (4 events):
+Event: 6,562 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 4928K, used 4416K [0x64400000, 0x64950000, 0x69200000)
+  eden space 4416K, 100% used [0x64400000, 0x64850000, 0x64850000)
+  from space 512K,   0% used [0x64850000, 0x64850000, 0x648d0000)
+  to   space 512K,   0% used [0x648d0000, 0x648d0000, 0x64950000)
+ tenured generation   total 10944K, used 0K [0x69200000, 0x69cb0000, 0x72e00000)
+   the space 10944K,   0% used [0x69200000, 0x69200000, 0x69200200, 0x69cb0000)
+ Metaspace       used 3150K, capacity 3166K, committed 3224K, reserved 4400K
+Event: 6,583 GC heap after
+Heap after GC invocations=1 (full 0):
+ def new generation   total 4928K, used 512K [0x64400000, 0x64950000, 0x69200000)
+  eden space 4416K,   0% used [0x64400000, 0x64400000, 0x64850000)
+  from space 512K, 100% used [0x648d0000, 0x64950000, 0x64950000)
+  to   space 512K,   0% used [0x64850000, 0x64850000, 0x648d0000)
+ tenured generation   total 10944K, used 323K [0x69200000, 0x69cb0000, 0x72e00000)
+   the space 10944K,   2% used [0x69200000, 0x69250fe8, 0x69251000, 0x69cb0000)
+ Metaspace       used 3150K, capacity 3166K, committed 3224K, reserved 4400K
+}
+Event: 23,309 GC heap before
+{Heap before GC invocations=1 (full 0):
+ def new generation   total 4928K, used 4928K [0x64400000, 0x64950000, 0x69200000)
+  eden space 4416K, 100% used [0x64400000, 0x64850000, 0x64850000)
+  from space 512K, 100% used [0x648d0000, 0x64950000, 0x64950000)
+  to   space 512K,   0% used [0x64850000, 0x64850000, 0x648d0000)
+ tenured generation   total 10944K, used 323K [0x69200000, 0x69cb0000, 0x72e00000)
+   the space 10944K,   2% used [0x69200000, 0x69250fe8, 0x69251000, 0x69cb0000)
+ Metaspace       used 3151K, capacity 3166K, committed 3224K, reserved 4400K
+Event: 23,325 GC heap after
+Heap after GC invocations=2 (full 0):
+ def new generation   total 4928K, used 5K [0x64400000, 0x64950000, 0x69200000)
+  eden space 4416K,   0% used [0x64400000, 0x64400000, 0x64850000)
+  from space 512K,   1% used [0x64850000, 0x648516c0, 0x648d0000)
+  to   space 512K,   0% used [0x648d0000, 0x648d0000, 0x64950000)
+ tenured generation   total 10944K, used 835K [0x69200000, 0x69cb0000, 0x72e00000)
+   the space 10944K,   7% used [0x69200000, 0x692d0c18, 0x692d0e00, 0x69cb0000)
+ Metaspace       used 3151K, capacity 3166K, committed 3224K, reserved 4400K
+}
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0,594 Thread 0x74f08000 Exception <a 'java/security/PrivilegedActionException'> (0x645aa8d0) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1435]
+Event: 0,594 Thread 0x74f08000 Exception <a 'java/security/PrivilegedActionException'> (0x645aaad0) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1435]
+Event: 1,720 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x646765c8) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1,720 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x64677098) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1,738 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x646b9690) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1,738 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x646ba120) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1,743 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x646c5768) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1,743 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x646c61f8) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1,751 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x64708150) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 1,751 Thread 0x74f08000 Exception <a 'java/io/FileNotFoundException'> (0x64708be0) thrown at [/build/openjdk-8-B3InWk/openjdk-8-8u171-b11/src/hotspot/src/share/vm/prims/jni.cpp, line 709]
+
+Events (10 events):
+Event: 23,307 Thread 0x630e9400 Thread added: 0x630e9400
+Event: 23,307 Thread 0x630ea800 Thread added: 0x630ea800
+Event: 23,307 Thread 0x63098400 Thread added: 0x63098400
+Event: 23,308 Thread 0x63099800 Thread added: 0x63099800
+Event: 23,308 Thread 0x6309b000 Thread added: 0x6309b000
+Event: 23,308 Thread 0x6309c400 Thread added: 0x6309c400
+Event: 23,309 Thread 0x6309dc00 Thread added: 0x6309dc00
+Event: 23,309 Executing VM operation: GenCollectForAllocation
+Event: 23,309 Thread 0x6309f400 Thread added: 0x6309f400
+Event: 23,325 Executing VM operation: GenCollectForAllocation done
+
+
+Dynamic libraries:
+00010000-00011000 r-xp 00000000 b3:07 671579     /usr/lib/jvm/java-8-openjdk-armhf/jre/bin/java
+00020000-00021000 r--p 00000000 b3:07 671579     /usr/lib/jvm/java-8-openjdk-armhf/jre/bin/java
+00021000-00022000 rw-p 00001000 b3:07 671579     /usr/lib/jvm/java-8-openjdk-armhf/jre/bin/java
+01e50000-01e71000 rw-p 00000000 00:00 0          [heap]
+6112f000-61132000 ---p 00000000 00:00 0 
+61132000-6117f000 rw-p 00000000 00:00 0 
+6117f000-61182000 ---p 00000000 00:00 0 
+61182000-611cf000 rw-p 00000000 00:00 0 
+611cf000-611d2000 ---p 00000000 00:00 0 
+611d2000-6121f000 rw-p 00000000 00:00 0 
+6121f000-61222000 ---p 00000000 00:00 0 
+61222000-6126f000 rw-p 00000000 00:00 0 
+6126f000-61272000 ---p 00000000 00:00 0 
+61272000-612bf000 rw-p 00000000 00:00 0 
+612bf000-612c2000 ---p 00000000 00:00 0 
+612c2000-6130f000 rw-p 00000000 00:00 0 
+6130f000-61312000 ---p 00000000 00:00 0 
+61312000-6135f000 rw-p 00000000 00:00 0 
+6135f000-61362000 ---p 00000000 00:00 0 
+61362000-613af000 rw-p 00000000 00:00 0 
+613af000-613b2000 ---p 00000000 00:00 0 
+613b2000-63000000 rw-p 00000000 00:00 0 
+63000000-630ee000 rw-p 00000000 00:00 0 
+630ee000-63100000 ---p 00000000 00:00 0 
+63100000-63121000 rw-p 00000000 00:00 0 
+63121000-63200000 ---p 00000000 00:00 0 
+63212000-63215000 ---p 00000000 00:00 0 
+63215000-63262000 rw-p 00000000 00:00 0 
+63262000-63269000 r--s 00000000 b3:07 286848     /usr/lib/arm-linux-gnueabihf/gconv/gconv-modules.cache
+63269000-63278000 r--p 00000000 b3:07 670384     /usr/share/locale/pt_BR/LC_MESSAGES/libc.mo
+63278000-6328a000 r-xp 00000000 b3:07 683847     /tmp/libpi4j3473145213268408891.so
+6328a000-6329a000 ---p 00012000 b3:07 683847     /tmp/libpi4j3473145213268408891.so
+6329a000-6329b000 rw-p 00012000 b3:07 683847     /tmp/libpi4j3473145213268408891.so
+6329b000-6329f000 rw-p 00000000 00:00 0 
+6329f000-632b4000 r-xp 00000000 b3:07 674443     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+632b4000-632c3000 ---p 00015000 b3:07 674443     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+632c3000-632c4000 r--p 00014000 b3:07 674443     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+632c4000-632c5000 rw-p 00015000 b3:07 674443     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+632c5000-632d4000 r-xp 00000000 b3:07 674444     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+632d4000-632e3000 ---p 0000f000 b3:07 674444     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+632e3000-632e4000 r--p 0000e000 b3:07 674444     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+632e4000-632e5000 rw-p 0000f000 b3:07 674444     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+632e5000-63300000 r--s 001d6000 b3:07 291924     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/nashorn.jar
+63300000-633bc000 rw-p 00000000 00:00 0 
+633bc000-63400000 ---p 00000000 00:00 0 
+63400000-63401000 ---p 00000000 00:00 0 
+63401000-63480000 rw-p 00000000 00:00 0 
+63480000-63483000 ---p 00000000 00:00 0 
+63483000-63500000 rw-p 00000000 00:00 0 
+63500000-63521000 rw-p 00000000 00:00 0 
+63521000-63600000 ---p 00000000 00:00 0 
+63600000-6360c000 r-xp 00000000 b3:07 410541     /usr/lib/jni/librxtxSerial-2.2pre1.so
+6360c000-63613000 ---p 0000c000 b3:07 410541     /usr/lib/jni/librxtxSerial-2.2pre1.so
+63613000-63614000 r--p 0000b000 b3:07 410541     /usr/lib/jni/librxtxSerial-2.2pre1.so
+63614000-63615000 rw-p 0000c000 b3:07 410541     /usr/lib/jni/librxtxSerial-2.2pre1.so
+63615000-63618000 ---p 00000000 00:00 0 
+63618000-63665000 rw-p 00000000 00:00 0 
+63665000-63800000 r--p 00000000 b3:07 144978     /usr/lib/locale/locale-archive
+63800000-63821000 rw-p 00000000 00:00 0 
+63821000-63900000 ---p 00000000 00:00 0 
+63900000-63921000 rw-p 00000000 00:00 0 
+63921000-63a00000 ---p 00000000 00:00 0 
+63a00000-63a21000 rw-p 00000000 00:00 0 
+63a21000-63b00000 ---p 00000000 00:00 0 
+63b01000-63b03000 r--s 0000d000 b3:07 685576     /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib/ext/RXTXcomm-2.2pre2.jar
+63b03000-63b04000 r--s 00004000 b3:07 295305     /opt/pi4j/lib/pi4j-service.jar
+63b04000-63b07000 r--s 00015000 b3:07 295306     /opt/pi4j/lib/pi4j-gpio-extension.jar
+63b07000-63b0a000 ---p 00000000 00:00 0 
+63b0a000-63b57000 rw-p 00000000 00:00 0 
+63b57000-63b5a000 ---p 00000000 00:00 0 
+63b5a000-63ba7000 rw-p 00000000 00:00 0 
+63ba7000-63baa000 ---p 00000000 00:00 0 
+63baa000-63bf7000 rw-p 00000000 00:00 0 
+63bf7000-63bf8000 ---p 00000000 00:00 0 
+63bf8000-63cc5000 rw-p 00000000 00:00 0 
+63cc5000-63e94000 r--s 03c2f000 b3:07 674463     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/rt.jar
+63e94000-64215000 rw-p 00000000 00:00 0 
+64215000-6433b000 ---p 00000000 00:00 0 
+6433b000-64341000 rw-p 00000000 00:00 0 
+64341000-6438a000 ---p 00000000 00:00 0 
+6438a000-6438d000 rw-p 00000000 00:00 0 
+6438d000-643b1000 ---p 00000000 00:00 0 
+643b1000-643b7000 rw-p 00000000 00:00 0 
+643b7000-643ff000 ---p 00000000 00:00 0 
+643ff000-64950000 rw-p 00000000 00:00 0 
+64950000-69200000 ---p 00000000 00:00 0 
+69200000-69cb0000 rw-p 00000000 00:00 0 
+69cb0000-72e00000 ---p 00000000 00:00 0 
+72e00000-72e07000 r--s 00031000 b3:07 295304     /opt/pi4j/lib/pi4j-device.jar
+72e07000-72e0c000 r--s 0009d000 b3:07 674458     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/jsse.jar
+72e0c000-72e13000 r--s 0007d000 b3:07 295303     /opt/pi4j/lib/pi4j-core.jar
+72e13000-72e2e000 r--s 00394000 b3:07 282834     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/cldrdata.jar
+72e2e000-72e34000 rw-p 00000000 00:00 0 
+72e34000-72eae000 ---p 00000000 00:00 0 
+72eae000-73016000 rwxp 00000000 00:00 0 
+73016000-74eae000 ---p 00000000 00:00 0 
+74eae000-74eb5000 r-xp 00000000 b3:07 674450     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74eb5000-74ec4000 ---p 00007000 b3:07 674450     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74ec4000-74ec5000 r--p 00006000 b3:07 674450     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74ec5000-74ec6000 rw-p 00007000 b3:07 674450     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74ec6000-74ecf000 r-xp 00000000 b3:07 143830     /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74ecf000-74ede000 ---p 00009000 b3:07 143830     /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74ede000-74edf000 r--p 00008000 b3:07 143830     /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74edf000-74ee0000 rw-p 00009000 b3:07 143830     /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74ee0000-74ee6000 rw-p 00000000 00:00 0 
+74ee6000-74eef000 r-xp 00000000 b3:07 143948     /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74eef000-74efe000 ---p 00009000 b3:07 143948     /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74efe000-74eff000 r--p 00008000 b3:07 143948     /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74eff000-74f00000 rw-p 00009000 b3:07 143948     /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74f00000-74fff000 rw-p 00000000 00:00 0 
+74fff000-75000000 ---p 00000000 00:00 0 
+75000000-75001000 rw-s 3f100000 00:06 1027       /dev/mem
+75001000-75002000 rw-s 3f101000 00:06 1027       /dev/mem
+75002000-75003000 rw-s 3f20c000 00:06 1027       /dev/mem
+75003000-7500d000 r--s 00116000 b3:07 291923     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/localedata.jar
+7500d000-7501e000 r-xp 00000000 b3:07 143867     /lib/arm-linux-gnueabihf/libnsl-2.24.so
+7501e000-7502d000 ---p 00011000 b3:07 143867     /lib/arm-linux-gnueabihf/libnsl-2.24.so
+7502d000-7502e000 r--p 00010000 b3:07 143867     /lib/arm-linux-gnueabihf/libnsl-2.24.so
+7502e000-7502f000 rw-p 00011000 b3:07 143867     /lib/arm-linux-gnueabihf/libnsl-2.24.so
+7502f000-75031000 rw-p 00000000 00:00 0 
+75031000-75037000 r-xp 00000000 b3:07 143847     /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+75037000-75046000 ---p 00006000 b3:07 143847     /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+75046000-75047000 r--p 00005000 b3:07 143847     /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+75047000-75048000 rw-p 00006000 b3:07 143847     /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+75048000-7506d000 r-xp 00000000 b3:07 674180     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+7506d000-7507c000 ---p 00025000 b3:07 674180     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+7507c000-7507d000 r--p 00024000 b3:07 674180     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+7507d000-7507e000 rw-p 00025000 b3:07 674180     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+7507e000-7508b000 r-xp 00000000 b3:07 674449     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+7508b000-7509a000 ---p 0000d000 b3:07 674449     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+7509a000-7509b000 r--p 0000c000 b3:07 674449     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+7509b000-7509c000 rw-p 0000d000 b3:07 674449     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+7509c000-750a2000 r-xp 00000000 b3:07 143819     /lib/arm-linux-gnueabihf/librt-2.24.so
+750a2000-750b1000 ---p 00006000 b3:07 143819     /lib/arm-linux-gnueabihf/librt-2.24.so
+750b1000-750b2000 r--p 00005000 b3:07 143819     /lib/arm-linux-gnueabihf/librt-2.24.so
+750b2000-750b3000 rw-p 00006000 b3:07 143819     /lib/arm-linux-gnueabihf/librt-2.24.so
+750b3000-750b6000 ---p 00000000 00:00 0 
+750b6000-75103000 rw-p 00000000 00:00 0 
+75103000-7511f000 r-xp 00000000 b3:07 143911     /lib/arm-linux-gnueabihf/libgcc_s.so.1
+7511f000-7512e000 ---p 0001c000 b3:07 143911     /lib/arm-linux-gnueabihf/libgcc_s.so.1
+7512e000-7512f000 r--p 0001b000 b3:07 143911     /lib/arm-linux-gnueabihf/libgcc_s.so.1
+7512f000-75130000 rw-p 0001c000 b3:07 143911     /lib/arm-linux-gnueabihf/libgcc_s.so.1
+75130000-7519d000 r-xp 00000000 b3:07 143965     /lib/arm-linux-gnueabihf/libm-2.24.so
+7519d000-751ad000 ---p 0006d000 b3:07 143965     /lib/arm-linux-gnueabihf/libm-2.24.so
+751ad000-751ae000 r--p 0006d000 b3:07 143965     /lib/arm-linux-gnueabihf/libm-2.24.so
+751ae000-751af000 rw-p 0006e000 b3:07 143965     /lib/arm-linux-gnueabihf/libm-2.24.so
+751af000-752de000 r-xp 00000000 b3:07 284627     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+752de000-752ee000 ---p 0012f000 b3:07 284627     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+752ee000-752f3000 r--p 0012f000 b3:07 284627     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+752f3000-752f5000 rw-p 00134000 b3:07 284627     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+752f5000-752f7000 rw-p 00000000 00:00 0 
+752f7000-75919000 r-xp 00000000 b3:07 672786     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+75919000-75929000 ---p 00622000 b3:07 672786     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+75929000-75939000 r--p 00622000 b3:07 672786     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+75939000-7594f000 rw-p 00632000 b3:07 672786     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+7594f000-76d6a000 rw-p 00000000 00:00 0 
+76d6a000-76e93000 r-xp 00000000 b3:07 143902     /lib/arm-linux-gnueabihf/libc-2.24.so
+76e93000-76ea3000 ---p 00129000 b3:07 143902     /lib/arm-linux-gnueabihf/libc-2.24.so
+76ea3000-76ea5000 r--p 00129000 b3:07 143902     /lib/arm-linux-gnueabihf/libc-2.24.so
+76ea5000-76ea6000 rw-p 0012b000 b3:07 143902     /lib/arm-linux-gnueabihf/libc-2.24.so
+76ea6000-76ea9000 rw-p 00000000 00:00 0 
+76ea9000-76eab000 r-xp 00000000 b3:07 143899     /lib/arm-linux-gnueabihf/libdl-2.24.so
+76eab000-76eba000 ---p 00002000 b3:07 143899     /lib/arm-linux-gnueabihf/libdl-2.24.so
+76eba000-76ebb000 r--p 00001000 b3:07 143899     /lib/arm-linux-gnueabihf/libdl-2.24.so
+76ebb000-76ebc000 rw-p 00002000 b3:07 143899     /lib/arm-linux-gnueabihf/libdl-2.24.so
+76ebc000-76eca000 r-xp 00000000 b3:07 282808     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76eca000-76ed9000 ---p 0000e000 b3:07 282808     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76ed9000-76eda000 r--p 0000d000 b3:07 282808     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76eda000-76edb000 rw-p 0000e000 b3:07 282808     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76edb000-76ef1000 r-xp 00000000 b3:07 143871     /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76ef1000-76f00000 ---p 00016000 b3:07 143871     /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76f00000-76f01000 r--p 00015000 b3:07 143871     /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76f01000-76f02000 rw-p 00016000 b3:07 143871     /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76f02000-76f18000 r-xp 00000000 b3:07 143882     /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76f18000-76f27000 ---p 00016000 b3:07 143882     /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76f27000-76f28000 r--p 00015000 b3:07 143882     /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76f28000-76f29000 rw-p 00016000 b3:07 143882     /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76f29000-76f2b000 rw-p 00000000 00:00 0 
+76f2b000-76f2c000 rw-s 3f200000 00:06 1027       /dev/mem
+76f2c000-76f2e000 r--s 00001000 b3:07 287233     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/dnsns.jar
+76f2e000-76f2f000 r--s 00010000 b3:07 291928     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/zipfs.jar
+76f2f000-76f35000 r--s 0003b000 b3:07 291926     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/sunjce_provider.jar
+76f35000-76f37000 r--s 00008000 b3:07 291925     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/sunec.jar
+76f37000-76f3a000 r--s 0000f000 b3:07 287235     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/icedtea-sound.jar
+76f3a000-76f3d000 r--s 00038000 b3:07 291927     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/sunpkcs11.jar
+76f3d000-76f3f000 r--s 00007000 b3:07 674518     /usr/share/java/java-atk-wrapper.jar
+76f3f000-76f44000 r-xp 00000000 b3:07 284985     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76f44000-76f53000 ---p 00005000 b3:07 284985     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76f53000-76f54000 r--p 00004000 b3:07 284985     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76f54000-76f55000 rw-p 00005000 b3:07 284985     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76f55000-76f76000 r-xp 00000000 b3:07 143850     /lib/arm-linux-gnueabihf/ld-2.24.so
+76f76000-76f77000 r--s 0000a000 b3:07 291439     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/jaccess.jar
+76f77000-76f7f000 rw-s 00000000 b3:07 6135       /tmp/hsperfdata_root/3451
+76f7f000-76f80000 r--p 00000000 00:00 0 
+76f80000-76f85000 rw-p 00000000 00:00 0 
+76f85000-76f86000 r--p 00020000 b3:07 143850     /lib/arm-linux-gnueabihf/ld-2.24.so
+76f86000-76f87000 rw-p 00021000 b3:07 143850     /lib/arm-linux-gnueabihf/ld-2.24.so
+7ed32000-7ed53000 rw-p 00000000 00:00 0          [stack]
+7ee3f000-7ee40000 r-xp 00000000 00:00 0          [sigpage]
+7ee40000-7ee41000 r--p 00000000 00:00 0          [vvar]
+7ee41000-7ee42000 r-xp 00000000 00:00 0          [vdso]
+ffff0000-ffff1000 r-xp 00000000 00:00 0          [vectors]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: Locomocao
+java_class_path (initial): /root/workspace/Servos/bin:/opt/pi4j/lib/pi4j-core.jar:/opt/pi4j/lib/pi4j-device.jar:/opt/pi4j/lib/pi4j-gpio-extension.jar:/opt/pi4j/lib/pi4j-service.jar:/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib/ext/RXTXcomm-2.2pre2.jar:/root/workspace/Gorjeta/lib/jFuzzyLogic.jar:/home/pi/Documents/jfreechart-1.0.19/lib/jfreechart-1.0.19.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+USERNAME=root
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x5ae400], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x5ae400], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x474f84], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x474f84], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x474f84], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x474f84], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x474e30], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x47503c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x47503c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x47503c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x47503c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:PRETTY_NAME="Raspbian GNU/Linux 9 (stretch)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="9"
+VERSION="9 (stretch)"
+ID=raspbian
+ID_LIKE=debian
+HOME_URL="http://www.raspbian.org/"
+SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+
+uname:Linux 4.4.50-v7+ #970 SMP Mon Feb 20 19:18:29 GMT 2017 armv7l
+libc:glibc 2.24 NPTL 2.24 
+rlimit: STACK 8192k, CORE 0k, NPROC 7368, NOFILE 1048576, AS infinity
+load average:0,38 0,30 0,20
+
+/proc/meminfo:
+MemTotal:         951792 kB
+MemFree:          300400 kB
+MemAvailable:     594904 kB
+Buffers:          111800 kB
+Cached:           232020 kB
+SwapCached:            0 kB
+Active:           401944 kB
+Inactive:         213560 kB
+Active(anon):     271996 kB
+Inactive(anon):    13428 kB
+Active(file):     129948 kB
+Inactive(file):   200132 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:        102396 kB
+SwapFree:         102396 kB
+Dirty:               112 kB
+Writeback:             0 kB
+AnonPages:        271792 kB
+Mapped:            72364 kB
+Shmem:             13744 kB
+Slab:              19704 kB
+SReclaimable:      10768 kB
+SUnreclaim:         8936 kB
+KernelStack:        1952 kB
+PageTables:         2936 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      578292 kB
+Committed_AS:     977584 kB
+VmallocTotal:    1114112 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+CmaTotal:           8192 kB
+CmaFree:            3656 kB
+
+
+CPU:total 4 (initial active 4) 0x41:0x0:0xd03:4
+
+/proc/cpuinfo:
+processor	: 0
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 38.40
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 1
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 38.40
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 2
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 38.40
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 3
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 38.40
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+Hardware	: BCM2709
+Revision	: a22082
+Serial		: 00000000d6c583fc
+
+
+Memory: 4k page, physical 951792k(300400k free), swap 102396k(102396k free)
+
+vm_info: OpenJDK Client VM (25.171-b11) for linux-aarch32 JRE (1.8.0_171-8u171-b11-1~deb9u1-b11), built on Apr 27 2018 14:37:13 by "buildd" with gcc 6.3.0 20170516
+
+time: Sat Aug 18 20:49:47 2018
+elapsed time: 23 seconds (0d 0h 0m 23s)
+

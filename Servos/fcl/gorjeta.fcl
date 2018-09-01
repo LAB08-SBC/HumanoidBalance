@@ -2,13 +2,13 @@ FUNCTION_BLOCK gorjeta	// Block definition (there may be more than one block per
 
 // Define input variables
 VAR_INPUT	
-	angulo : REAL;
+	angulox : REAL;
 	velocidade : REAL;
 END_VAR
 
 // Define output variable
 VAR_OUTPUT	
-	anguloSaida : REAL;
+	anguloSaidax : REAL;
 	velocidadeSaida: Real;
 END_VAR
 

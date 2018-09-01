@@ -37,7 +37,7 @@ public class GorjetaComFCL
 
       //JFuzzyChart.get().chart(anguloSaida, anguloSaida.getDefuzzifier(), true);
       //System.out.println("Angulo Saida:" + fis.getVariable("anguloSaida").getValue());
-      double retorno[]={anguloSaidax, anguloSaidax, velocidadeSaida};
+      double retorno[]={anguloSaidax, velocidadeSaida};
       return(retorno);
       //Print ruleSet
       //System.out.println("\n====================================\n");

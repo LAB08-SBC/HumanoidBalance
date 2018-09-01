@@ -3,9 +3,9 @@ import java.math.BigDecimal;
 
 
 
-public class LocomocaoEquilibrio
+public class LocomocaoTeste
 {
-	public static Bioloid jason = new Bioloid(18);
+	public static Bioloid Jason;
     public static int motors[] = new int[18];
     //public static int initPos[] = {336, 687, 298, 724, 412, 611, 360, 660, 491, 530, 394, 630, 278, 743, 616, 405, 494, 520};
    	//public static int posicoes[]={336, 687, 298, 724, 412, 611, 360, 660, 491, 530, 394, 630, 278, 743, 616, 405, 494, 520};
@@ -52,11 +52,10 @@ public class LocomocaoEquilibrio
     static long coeficiente2;
     static double anguloPadrao=LoopbackTest.anguloAtualY;
     static double saidas[];
-    
-    
+	
     public static void main(String[] args) throws InterruptedException {
     	
-    
+    	Jason = new Bioloid(18);
     	LoopbackTest sensores = new LoopbackTest("/dev/ttyACM0"); 
     	try {
 			sensores.connect();
@@ -80,24 +79,24 @@ public class LocomocaoEquilibrio
 		    
 		   
 		    BigDecimal i = new BigDecimal(1.00);
-//		    jason.move( 9, initPos[9-1]); 
-//		    Thread.sleep(20);
-//	    	jason.move(10, initPos[10-1]); 
-//	    	Thread.sleep(20);
-//	    	jason.move(11, initPos[11-1]);
-//	    	Thread.sleep(20);
-//	    	jason.move(13, initPos[13-1]);
-//	    	Thread.sleep(20);
-//	    	jason.move(14, initPos[14-1]);
-//	    	Thread.sleep(20);
-//	    	jason.move(15, initPos[15-1]); 
-//	    	Thread.sleep(20);
-//	    	jason.move(16, initPos[16-1]);  
-//	    	Thread.sleep(20);
-//	    	jason.move(17, initPos[17-1]);
-//	    	Thread.sleep(20);
-//	    	jason.move(18, initPos[18-1]);
-//	    	Thread.sleep(20);
+		    Jason.move( 9, initPos[9-1]); 
+		    Thread.sleep(20);
+	    	Jason.move(10, initPos[10-1]); 
+	    	Thread.sleep(20);
+	    	Jason.move(11, initPos[11-1]);
+	    	Thread.sleep(20);
+	    	Jason.move(13, initPos[13-1]);
+	    	Thread.sleep(20);
+	    	Jason.move(14, initPos[14-1]);
+	    	Thread.sleep(20);
+	    	Jason.move(15, initPos[15-1]); 
+	    	Thread.sleep(20);
+	    	Jason.move(16, initPos[16-1]);  
+	    	Thread.sleep(20);
+	    	Jason.move(17, initPos[17-1]);
+	    	Thread.sleep(20);
+	    	Jason.move(18, initPos[18-1]);
+	    	Thread.sleep(20);
 	    	
 		    while (i.doubleValue()<14.7){
     			
@@ -112,30 +111,30 @@ public class LocomocaoEquilibrio
 		    	posicoes[17-1] = (int)(-0.000602821242505626*(Math.pow(i.doubleValue(),6))+0.0405315649727053*(Math.pow(i.doubleValue(),5))-0.916931723020958 *(Math.pow(i.doubleValue(),4))+8.3576698861698*(Math.pow(i.doubleValue(),3))-25.507120415259*(Math.pow(i.doubleValue(),2))-1.29495830014807*i.doubleValue()+497.088587623408);
 		    	posicoes[18-1] = (int)(-0.00021958932773343*(Math.pow(i.doubleValue(),6))+0.0135980370756124*(Math.pow(i.doubleValue(),5))-0.239784506804081 *(Math.pow(i.doubleValue(),4))+0.466436883005924*(Math.pow(i.doubleValue(),3))+18.9979103475509*(Math.pow(i.doubleValue(),2))-113.421209371814*i.doubleValue()+620.07665583061);
 		    	
-		    	jason.move( 9, posicoes[9-1]);
-		    	//arrumar();
+		    	Jason.move( 9, posicoes[9-1]);
+		    	arrumar();
 		    	
-		    	jason.move(10, posicoes[10-1]); 
-		    	//arrumar();
+		    	Jason.move(10, posicoes[10-1]); 
+		    	arrumar();
 		    	
 		    	//Jason.move(11, posicoes[11-1]);
 		    	//Jason.move(12, posicoes[12-1]);
-		    	jason.move(13, posicoes[13-1]);
+		    	Jason.move(13, posicoes[13-1]);
 		    	arrumar();
 		    
-		    	jason.move(14, posicoes[14-1]); 
+		    	Jason.move(14, posicoes[14-1]); 
 		    	arrumar();
 		    	
-		    	jason.move(15, posicoes[15-1]); 
-		    	//arrumar();
+		    	Jason.move(15, posicoes[15-1]); 
+		    	arrumar();
 		    	
-		    	jason.move(16, posicoes[16-1]); 
-		    	//arrumar();
+		    	Jason.move(16, posicoes[16-1]); 
+		    	arrumar();
 		    	
-		    	jason.move(17, posicoes[17-1]);
-		    	//arrumar();
+		    	Jason.move(17, posicoes[17-1]);
+		    	arrumar();
 		    	
-		    	jason.move(18, posicoes[18-1]);
+		    	Jason.move(18, posicoes[18-1]);
 		    	arrumar();
 		    	
 		    	Thread.sleep(50);
@@ -150,84 +149,11 @@ public class LocomocaoEquilibrio
 		    	i = result;
 		    	
 		    	
-		    	System.out.println(i.doubleValue());    	
+		    	System.out.println(i.doubleValue());
+		    	
 		    	
 			    anguloAntes=anguloAtual;
 			    }
-		    for (int j = 437; j < 490; j++) {
-				jason.move(17, j);
-				Thread.sleep(10);
-			}
-	    	arrumar();
-	    	
-			for (int j = 464; j < 530; j++) {
-				jason.move(18, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			for (int j = 449; j < 491; j++) {
-				jason.move(9, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			for (int j = 474; j < 530; j++) {
-				jason.move(10, j);
-				Thread.sleep(10);
-			}
-			
-			//Thread.sleep(1000);
-			/*
-			for (int j = 337; j < 404; j++) {
-				jason.move(11, j);
-				Thread.sleep(10);
-			}
-			for (int j = 637; j > 615; j--) {
-				jason.move(12, j);
-				Thread.sleep(10);
-			}
-			*/
-			//Thread.sleep(1000);
-			for (int j = 527; j < 606; j++) {
-				jason.move(15, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			for (int j = 422; j > 415; j--) {
-				jason.move(16, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			for (int j = 334; j > 298; j--) {
-				jason.move(13, j);
-				Thread.sleep(1);
-			}
-			arrumar();
-			for (int j = 694; j < 723; j++) {
-				jason.move(14, j);
-				Thread.sleep(1);
-			}
-			arrumar();
-			for (int j = 606; j < 616; j++) {
-				jason.move(15, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			for (int j = 415; j > 405; j--) {
-				jason.move(16, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			for (int j = 414; j > 394; j--) {
-				jason.move(11, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			for (int j = 605; j <  625; j++) {
-				jason.move(12, j);
-				Thread.sleep(10);
-			}
-			arrumar();
-			Thread.sleep(20);		    
     	}
     	
     }
@@ -235,19 +161,19 @@ public class LocomocaoEquilibrio
     	try{
     			int counter=0;
 	    	//if(Math.abs(anguloPadrao-LoopbackTest.anguloAtual)>3){
-	    		if(Math.abs(anguloPadrao-LoopbackTest.anguloAtualY)>4){
+	    		while(Math.abs(anguloPadrao-LoopbackTest.anguloAtualY)>4){
 	    			saidas=LocomocaoComFCL.calcularAngulo(LoopbackTest.anguloAtualY, velocidade);
 	    			batata=(int)Math.round(saidas[0]);
 	    			System.out.println(LoopbackTest.anguloAtualY);
 	    			if(auxiliar==999999999){
 	    				auxiliar=batata;
 	    			}
-//	    			if(batata==0)
-//	    				counter++;
-//	    			if(counter==5){
-//	    				counter=0;
-//	    				break;
-//	    			}
+	    			if(batata==0)
+	    				counter++;
+	    			if(counter==5){
+	    				counter=0;
+	    				break;
+	    			}
 	    			System.out.println("Angulo Saida: " + batata + " Velocidade Saida: " + saidas[1]);
 	    			tempoAtual=System.nanoTime()/1000000;
 	    			coeficiente=tempoAtual-tempoAnterior;
@@ -290,9 +216,9 @@ public class LocomocaoEquilibrio
         		movimentoAuxiliar2-=velocidade;
     			posicoes[11-1]=(int)movimentoAuxiliar1;
     			posicoes[12-1]=(int)movimentoAuxiliar2;
-    			jason.move(11,(int)posicoes[11-1]);
+    			Jason.move(11,(int)posicoes[11-1]);
     			Thread.sleep(5);
-    			jason.move(12,(int)posicoes[12-1]);
+    			Jason.move(12,(int)posicoes[12-1]);
     			Thread.sleep(5);
     			System.out.println(posicoes[11-1] + " " +posicoes[12-1]);
     			Thread.sleep(100);
@@ -307,9 +233,9 @@ public class LocomocaoEquilibrio
         		movimentoAuxiliar2+=velocidade;
     			posicoes[11-1]=(int)movimentoAuxiliar1;
     			posicoes[12-1]=(int)movimentoAuxiliar2;
-    			jason.move(11,(int)posicoes[11-1]);
+    			Jason.move(11,(int)posicoes[11-1]);
     			Thread.sleep(5);
-    			jason.move(12,(int)posicoes[12-1]);
+    			Jason.move(12,(int)posicoes[12-1]);
     			Thread.sleep(5);
     			System.out.println(posicoes[11-1] + " " +posicoes[12-1]);
     			Thread.sleep(100);

@@ -55,8 +55,24 @@ public class Run2
     	Thread.sleep(200);
     	initialPos(Jason);
     	
-    	//Jason.move(1, posicoes[1-1]);
-    	//Jason.move(2, posicoes[2-1]);
+    	//Jason.move(7, initPos[7-1]);
+    	//Jason.move(8, initPos[8-1]);
+    	
+    	//Jason.move(9, 512);
+    	//Jason.move(10, 512);
+    	
+    	//Jason.move(11, 402);
+    	//Jason.move(12, 632);
+    	
+    	//Jason.move(14, 732);
+    	//Jason.move(13, 292);
+    	
+    	//Jason.move(16, 402);
+    	//Jason.move(15, 622);
+    	
+    	//Jason.move(17, 512);
+    	//Jason.move(18, 512);
+    	
     	//Jason.move(1, 212);
     	//Jason.move(2, 812);
     	//Thread.sleep(1500);
