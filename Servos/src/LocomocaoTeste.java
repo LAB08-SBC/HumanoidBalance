@@ -38,7 +38,7 @@ public class LocomocaoTeste
     }
     
     static double anguloAtual=0;
-    static double anguloAntes=LoopbackTest.anguloAtualY;
+    static double anguloAntes=LoopbackTest.anguloAtualX;
     static double velocidade;
     static double anguloSaida;
     static double auxiliar=999999999;
@@ -50,7 +50,7 @@ public class LocomocaoTeste
     static double coeficiente;
     static long tempoAtual2;
     static long coeficiente2;
-    static double anguloPadrao=LoopbackTest.anguloAtualY;
+    static double anguloPadrao=LoopbackTest.anguloAtualX;
     static double saidas[];
 	
     public static void main(String[] args) throws InterruptedException {
@@ -64,7 +64,7 @@ public class LocomocaoTeste
 		}
     	
     	for(int i=0;i<300;i++)
-        	anguloPadrao =LoopbackTest.anguloAtualY;
+        	anguloPadrao =LoopbackTest.anguloAtualX;
     	
     	System.out.println(anguloPadrao);
     	Gravador gravador = new Gravador("DadosTeste.txt");
@@ -72,10 +72,10 @@ public class LocomocaoTeste
     	
     	while(teste){
 		    Thread.sleep(100);
-		    anguloAtual =LoopbackTest.anguloAtualY;
+		    anguloAtual =LoopbackTest.anguloAtualX;
 		    velocidade = anguloAtual-anguloAntes;
 		    System.out.println("velocidade: " + Math.abs(velocidade));
-		    System.out.println("Angulo: " + LoopbackTest.anguloAtualY);
+		    System.out.println("Angulo: " + LoopbackTest.anguloAtualX);
 		    
 		   
 		    BigDecimal i = new BigDecimal(1.00);
@@ -138,7 +138,7 @@ public class LocomocaoTeste
 		    	arrumar();
 		    	
 		    	Thread.sleep(50);
-		    	gravador.escrever(LoopbackTest.anguloAtualY);
+		    	gravador.escrever(LoopbackTest.anguloAtualX);
 				gravador.escrever(" ");
 			    if(contador2==300){
 			    	gravador.close();
@@ -161,10 +161,10 @@ public class LocomocaoTeste
     	try{
     			int counter=0;
 	    	//if(Math.abs(anguloPadrao-LoopbackTest.anguloAtual)>3){
-	    		while(Math.abs(anguloPadrao-LoopbackTest.anguloAtualY)>4){
-	    			saidas=LocomocaoComFCL.calcularAngulo(LoopbackTest.anguloAtualY, velocidade);
+	    		while(Math.abs(anguloPadrao-LoopbackTest.anguloAtualX)>4){
+	    			saidas=LocomocaoComFCL.calcularAngulo(LoopbackTest.anguloAtualX, velocidade);
 	    			batata=(int)Math.round(saidas[0]);
-	    			System.out.println(LoopbackTest.anguloAtualY);
+	    			System.out.println(LoopbackTest.anguloAtualX);
 	    			if(auxiliar==999999999){
 	    				auxiliar=batata;
 	    			}

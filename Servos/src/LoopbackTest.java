@@ -108,7 +108,25 @@ public class LoopbackTest{
                 double anguloDoubley = Double.parseDouble(part1);
                 double anguloDoublex = Double.parseDouble(part2);
                 anguloAtualY=anguloDoubley;
-                anguloAtualY=anguloDoublex;
+                anguloAtualX=anguloDoublex;
+                
+                while ((data = in.read()) > -1) {                    
+                    if (data == '\n') {
+                        break;
+                    }
+                    buffer[len++] = (byte) data;
+                }
+              
+                angulo = new String(buffer, 0, len);
+                
+                string = angulo;
+                parts = string.split(";");
+                part1 = parts[0];
+                part2 = parts[1];
+                anguloDoubley = Double.parseDouble(part1);
+                anguloDoublex = Double.parseDouble(part2);
+                anguloAtualY=anguloDoubley;
+                anguloAtualX=anguloDoublex;
                 
                 //System.out.print(new String(buffer, 0, len));
                 

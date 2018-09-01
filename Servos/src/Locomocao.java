@@ -173,7 +173,7 @@ public class Locomocao {
 				jason.move(17, motor17);
 				jason.move(18, motor18);
 				Thread.sleep(20);
-				System.out.println(LoopbackTest.anguloAtualY);
+				System.out.println(LoopbackTest.anguloAtualX);
 
 				// gravador.escrever(LoopbackTest.anguloAtual);
 				// gravador.escrever(" ");
